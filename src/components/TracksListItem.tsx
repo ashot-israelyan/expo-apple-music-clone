@@ -4,9 +4,10 @@ import { defaultStyles } from '@/styles'
 import { StyleSheet, Text, TouchableHighlight, View } from 'react-native'
 import FastImage from 'react-native-fast-image'
 import { FC } from 'react'
+import { Track } from 'react-native-track-player'
 
 export type TrackListItemProps = {
-	track: { title: string; image?: string; artist?: string }
+	track: Track
 }
 
 export const TracksListItem: FC<TrackListItemProps> = ({ track }) => {
