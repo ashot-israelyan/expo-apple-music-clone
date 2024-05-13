@@ -4,21 +4,27 @@ import { defaultStyles } from '@/styles'
 import { StyleSheet, Text, TouchableHighlight, View } from 'react-native'
 import FastImage from 'react-native-fast-image'
 import { FC } from 'react'
-import { Track } from 'react-native-track-player'
+import { Track, useActiveTrack } from 'react-native-track-player'
+import { Entypo } from '@expo/vector-icons'
 
 export type TrackListItemProps = {
 	track: Track
+	onTrackSelect: (track: Track) => void
 }
 
-export const TracksListItem: FC<TrackListItemProps> = ({ track }) => {
-	const isActiveTrack = false
+export const TracksListItem: FC<TrackListItemProps> = ({
+	track,
+	onTrackSelect: handleTrackSelect,
+}) => {
+	const isActiveTrack = useActiveTrack()?.url === track.url
+
 	return (
-		<TouchableHighlight>
+		<TouchableHighlight onPress={() => handleTrackSelect(track)}>
 			<View style={styles.trackItemContainer}>
 				<View>
 					<FastImage
 						source={{
-							uri: track.image ?? unknownTrackImageUri,
+							uri: track.artwork ?? unknownTrackImageUri,
 							priority: FastImage.priority.normal,
 						}}
 						style={{
@@ -54,6 +60,8 @@ export const TracksListItem: FC<TrackListItemProps> = ({ track }) => {
 							</Text>
 						)}
 					</View>
+
+					<Entypo name="dots-three-horizontal" size={18} color={colors.icon} />
 				</View>
 			</View>
 		</TouchableHighlight>

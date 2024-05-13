@@ -13,13 +13,19 @@ const ItemDivider = () => (
 )
 
 export const TracksList: FC<TracksListProps> = ({ tracks, ...flatlistProps }) => {
+	const handleTrackSelect = (track: Track) => {
+		console.log(track)
+	}
+
 	return (
 		<FlatList
 			data={tracks}
 			contentContainerStyle={{ paddingTop: 10, paddingBottom: 128 }}
 			ListFooterComponent={ItemDivider}
 			ItemSeparatorComponent={ItemDivider}
-			renderItem={({ item: track }) => <TracksListItem track={track} />}
+			renderItem={({ item: track }) => (
+				<TracksListItem track={track} onTrackSelect={handleTrackSelect} />
+			)}
 			{...flatlistProps}
 		/>
 	)
