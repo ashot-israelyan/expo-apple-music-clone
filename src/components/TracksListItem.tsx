@@ -1,22 +1,24 @@
-import { unknownTrackImageUri } from '@/constants/images'
-import { colors, fontSize } from '@/constants/tokens'
-import { defaultStyles } from '@/styles'
-import { StyleSheet, Text, TouchableHighlight, View } from 'react-native'
-import FastImage from 'react-native-fast-image'
-import { FC } from 'react'
-import { Track, useActiveTrack } from 'react-native-track-player'
-import { Entypo } from '@expo/vector-icons'
+import { unknownTrackImageUri } from '@/constants/images';
+import { colors, fontSize } from '@/constants/tokens';
+import { defaultStyles } from '@/styles';
+import { StyleSheet, Text, TouchableHighlight, View } from 'react-native';
+import FastImage from 'react-native-fast-image';
+import { FC } from 'react';
+import { Track, useActiveTrack, useIsPlaying } from 'react-native-track-player';
+import { Entypo, Ionicons } from '@expo/vector-icons';
+import LoaderKit from 'react-native-loader-kit';
 
 export type TrackListItemProps = {
-	track: Track
-	onTrackSelect: (track: Track) => void
-}
+	track: Track;
+	onTrackSelect: (track: Track) => void;
+};
 
 export const TracksListItem: FC<TrackListItemProps> = ({
 	track,
 	onTrackSelect: handleTrackSelect,
 }) => {
-	const isActiveTrack = useActiveTrack()?.url === track.url
+	const { playing } = useIsPlaying();
+	const isActiveTrack = useActiveTrack()?.url === track.url;
 
 	return (
 		<TouchableHighlight onPress={() => handleTrackSelect(track)}>
@@ -32,6 +34,21 @@ export const TracksListItem: FC<TrackListItemProps> = ({
 							opacity: isActiveTrack ? 0.6 : 1,
 						}}
 					/>
+					{isActiveTrack &&
+						(playing ? (
+							<LoaderKit
+								style={styles.trackPlayingIconIndicator}
+								name="LineScaleParty"
+								color={colors.icon}
+							/>
+						) : (
+							<Ionicons
+								style={styles.trackPausedIndicator}
+								name="play"
+								size={24}
+								color={colors.icon}
+							/>
+						))}
 				</View>
 
 				<View
@@ -65,8 +82,8 @@ export const TracksListItem: FC<TrackListItemProps> = ({
 				</View>
 			</View>
 		</TouchableHighlight>
-	)
-}
+	);
+};
 
 const styles = StyleSheet.create({
 	trackItemContainer: {
@@ -104,4 +121,4 @@ const styles = StyleSheet.create({
 		fontSize: 14,
 		marginTop: 4,
 	},
-})
+});

@@ -5,6 +5,7 @@ import { unknownTrackImageUri } from '@/constants/images';
 import { defaultStyles } from '@/styles';
 import { PlayPauseButton, SkipToNextButton } from '@/components/PlayerControls';
 import { useLastActiveTrack } from '@/hooks/useLastActiveTrack';
+import { MovingText } from '@/components/MovingText';
 
 export const FloatingPlayer = ({ style }: { style: ViewStyle }) => {
 	const activeTrack = useActiveTrack();
@@ -25,7 +26,11 @@ export const FloatingPlayer = ({ style }: { style: ViewStyle }) => {
 				/>
 
 				<View style={styles.trackTitleContainer}>
-					<Text style={styles.trackTitle}>{displayedTrack.title}</Text>
+					<MovingText
+						text={displayedTrack.title!}
+						animationThreshold={25}
+						style={styles.trackTitle}
+					/>
 				</View>
 
 				<View style={styles.trackControlsContainer}>
