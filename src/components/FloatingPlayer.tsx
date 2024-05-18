@@ -1,20 +1,19 @@
-import { Track, useActiveTrack } from 'react-native-track-player'
-import { StyleSheet, Text, TouchableOpacity, View, ViewStyle } from 'react-native'
-import FastImage from 'react-native-fast-image'
-import { unknownTrackImageUri } from '@/constants/images'
-import { defaultStyles } from '@/styles'
-import { PlayPauseButton, SkipToNextButton } from '@/components/PlayerControls'
+import { useActiveTrack } from 'react-native-track-player';
+import { StyleSheet, Text, TouchableOpacity, View, ViewStyle } from 'react-native';
+import FastImage from 'react-native-fast-image';
+import { unknownTrackImageUri } from '@/constants/images';
+import { defaultStyles } from '@/styles';
+import { PlayPauseButton, SkipToNextButton } from '@/components/PlayerControls';
+import { useLastActiveTrack } from '@/hooks/useLastActiveTrack';
 
 export const FloatingPlayer = ({ style }: { style: ViewStyle }) => {
-	const activeTrack = useActiveTrack()
+	const activeTrack = useActiveTrack();
+	const lastActiveTrack = useLastActiveTrack();
 
-	const displayedTrack: Track = activeTrack ?? {
-		title: 'This is just a song',
-		url: '',
-	}
+	const displayedTrack = activeTrack ?? lastActiveTrack;
 
 	if (!displayedTrack) {
-		return null
+		return null;
 	}
 
 	return (
@@ -35,8 +34,8 @@ export const FloatingPlayer = ({ style }: { style: ViewStyle }) => {
 				</View>
 			</>
 		</TouchableOpacity>
-	)
-}
+	);
+};
 
 const styles = StyleSheet.create({
 	container: {
@@ -70,4 +69,4 @@ const styles = StyleSheet.create({
 		marginRight: 16,
 		marginLeft: 16,
 	},
-})
+});
