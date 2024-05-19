@@ -10,7 +10,7 @@ import { fontSize } from '@/constants/tokens';
 import { generateTracksListId } from '@/helpers/miscellaneous';
 import FastImage from 'react-native-fast-image';
 import { unknownArtistImageUri } from '@/constants/images';
-import { QueueControls } from '@/styles/src/components/QueueControls';
+import { QueueControls } from '@/components/QueueControls';
 
 export const ArtistTracksList: FC<{ artist: Artist }> = ({ artist }) => {
 	const search = useNavigationSearch({

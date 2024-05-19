@@ -6,7 +6,7 @@ import TrackPlayer, { Track } from 'react-native-track-player';
 import FastImage from 'react-native-fast-image';
 import { unknownTrackImageUri } from '@/constants/images';
 import { useQueue } from '@/store/queue';
-import { QueueControls } from '@/styles/src/components/QueueControls';
+import { QueueControls } from '@/components/QueueControls';
 
 export type TracksListProps = Partial<FlatListProps<Track>> & {
 	id: string;
