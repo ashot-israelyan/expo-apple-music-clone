@@ -13,6 +13,7 @@ import { PlayerVolumeBar } from '@/components/PlayerVolumeBar';
 import { PlayerRepeatToggle } from '@/components/PlayerRepeatToggle';
 import { usePlayerBackground } from '@/hooks/usePlayerBackground';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useTrackPlayerFavorite } from '@/hooks/useTrackPlayerFavorite';
 
 const PlayerScreen = () => {
 	const activeTrack = useActiveTrack();
@@ -20,8 +21,7 @@ const PlayerScreen = () => {
 
 	const { top, bottom } = useSafeAreaInsets();
 
-	const isFavorite = false;
-	const toggleFavorite = () => {};
+	const { isFavorite, toggleFavorite } = useTrackPlayerFavorite();
 
 	if (!activeTrack) {
 		return (

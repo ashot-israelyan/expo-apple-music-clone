@@ -7,6 +7,8 @@ import { FC } from 'react';
 import { Track, useActiveTrack, useIsPlaying } from 'react-native-track-player';
 import { Entypo, Ionicons } from '@expo/vector-icons';
 import LoaderKit from 'react-native-loader-kit';
+import { TrackShortcutsMenu } from './TrackShortcutsMenu';
+import { StopPropagation } from '@/components/utils/StopPropagation';
 
 export type TrackListItemProps = {
 	track: Track;
@@ -78,7 +80,11 @@ export const TracksListItem: FC<TrackListItemProps> = ({
 						)}
 					</View>
 
-					<Entypo name="dots-three-horizontal" size={18} color={colors.icon} />
+					<StopPropagation>
+						<TrackShortcutsMenu track={track}>
+							<Entypo name="dots-three-horizontal" size={18} color={colors.icon} />
+						</TrackShortcutsMenu>
+					</StopPropagation>
 				</View>
 			</View>
 		</TouchableHighlight>

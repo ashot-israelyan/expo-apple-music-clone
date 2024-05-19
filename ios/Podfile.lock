@@ -1230,6 +1230,8 @@ PODS:
   - react-native-loader-kit (2.0.8):
     - NVActivityIndicatorView (= 5.1.1)
     - React-Core
+  - react-native-menu (1.0.3):
+    - React
   - react-native-safe-area-context (4.10.1):
     - React-Core
   - react-native-track-player (4.1.1):
@@ -1595,6 +1597,7 @@ DEPENDENCIES:
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
   - React-Mapbuffer (from `../node_modules/react-native/ReactCommon`)
   - react-native-loader-kit (from `../node_modules/react-native-loader-kit`)
+  - "react-native-menu (from `../node_modules/@react-native-menu/menu`)"
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - react-native-track-player (from `../node_modules/react-native-track-player`)
   - React-nativeconfig (from `../node_modules/react-native/ReactCommon`)
@@ -1737,6 +1740,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   react-native-loader-kit:
     :path: "../node_modules/react-native-loader-kit"
+  react-native-menu:
+    :path: "../node_modules/@react-native-menu/menu"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
   react-native-track-player:
@@ -1851,6 +1856,7 @@ SPEC CHECKSUMS:
   React-logger: 7e7403a2b14c97f847d90763af76b84b152b6fce
   React-Mapbuffer: 11029dcd47c5c9e057a4092ab9c2a8d10a496a33
   react-native-loader-kit: ed18c8ce83b69083211912326897d8286f37d797
+  react-native-menu: 2e368669c7375dd1049ef3c7b2cab190ebe45d9e
   react-native-safe-area-context: dcab599c527c2d7de2d76507a523d20a0b83823d
   react-native-track-player: 82ef1756ffeea61140fea17519ecd6d64ec3cf3e
   React-nativeconfig: b0073a590774e8b35192fead188a36d1dca23dec

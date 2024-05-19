@@ -1624,6 +1624,11 @@
     prompts "^2.4.2"
     semver "^7.5.2"
 
+"@react-native-menu/menu@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@react-native-menu/menu/-/menu-1.0.3.tgz#b5557812fab55c90a428474d4d5bbb2c69f076ac"
+  integrity sha512-FwKsKtYs8R2BUaCUUn7+v3diITeU07fGogAQaZ+k8W/x+oX4KCKljjqgLBRywbjmfzPtCQLfs92AI0b4tv8mpA==
+
 "@react-native/assets-registry@0.74.83", "@react-native/assets-registry@~0.74.83":
   version "0.74.83"
   resolved "https://registry.yarnpkg.com/@react-native/assets-registry/-/assets-registry-0.74.83.tgz#c1815dc10f9e1075e0d03b4c8a9619145969522e"
