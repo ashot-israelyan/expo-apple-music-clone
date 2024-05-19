@@ -1,24 +1,26 @@
-import { ScrollView, View } from 'react-native'
-import { defaultStyles } from '@/styles'
-import { TracksList } from '@/components/TracksList'
-import { screenPadding } from '@/constants/tokens'
-import { useNavigationSearch } from '@/hooks/useNavigationSearch'
-import library from '@/assets/data/library.json'
-import { useMemo } from 'react'
-import { trackTitleFilter } from '@/helpers/filter'
+import { ScrollView, View } from 'react-native';
+import { defaultStyles } from '@/styles';
+import { TracksList } from '@/components/TracksList';
+import { screenPadding } from '@/constants/tokens';
+import { useNavigationSearch } from '@/hooks/useNavigationSearch';
+import { useMemo } from 'react';
+import { trackTitleFilter } from '@/helpers/filter';
+import { useTracks } from '@/store/library';
 
 const SongsScreen = () => {
 	const search = useNavigationSearch({
 		searchBarOptions: {
 			placeholder: 'Find in songs',
 		},
-	})
+	});
+
+	const tracks = useTracks();
 
 	const filteredTracks = useMemo(() => {
-		if (!search) return library
+		if (!search) return tracks;
 
-		return library.filter(trackTitleFilter(search))
-	}, [search])
+		return tracks.filter(trackTitleFilter(search));
+	}, [search, tracks]);
 
 	return (
 		<View style={defaultStyles.container}>
@@ -31,7 +33,7 @@ const SongsScreen = () => {
 				<TracksList tracks={filteredTracks} scrollEnabled={false} />
 			</ScrollView>
 		</View>
-	)
-}
+	);
+};
 
-export default SongsScreen
+export default SongsScreen;
