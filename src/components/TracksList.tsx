@@ -6,17 +6,24 @@ import TrackPlayer, { Track } from 'react-native-track-player';
 import FastImage from 'react-native-fast-image';
 import { unknownTrackImageUri } from '@/constants/images';
 import { useQueue } from '@/store/queue';
+import { QueueControls } from '@/styles/src/components/QueueControls';
 
 export type TracksListProps = Partial<FlatListProps<Track>> & {
 	id: string;
 	tracks: Track[];
+	hideQueueControls?: boolean;
 };
 
 const ItemDivider = () => (
 	<View style={{ ...utilsStyles.itemSeparator, marginVertical: 9, marginLeft: 16 }} />
 );
 
-export const TracksList: FC<TracksListProps> = ({ id, tracks, ...flatlistProps }) => {
+export const TracksList: FC<TracksListProps> = ({
+	id,
+	tracks,
+	hideQueueControls = false,
+	...flatlistProps
+}) => {
 	const queueOffset = useRef(0);
 	const { activeQueueId, setActiveQueueId } = useQueue();
 
@@ -56,6 +63,9 @@ export const TracksList: FC<TracksListProps> = ({ id, tracks, ...flatlistProps }
 		<FlatList
 			data={tracks}
 			contentContainerStyle={{ paddingTop: 10, paddingBottom: 128 }}
+			ListHeaderComponent={
+				!hideQueueControls ? <QueueControls tracks={tracks} style={{ paddingBottom: 20 }} /> : null
+			}
 			ListFooterComponent={ItemDivider}
 			ItemSeparatorComponent={ItemDivider}
 			ListEmptyComponent={
