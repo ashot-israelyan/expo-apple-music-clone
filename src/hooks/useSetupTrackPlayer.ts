@@ -17,7 +17,7 @@ const setupPlayer = async () => {
 		],
 	});
 
-	await TrackPlayer.setVolume(0.03);
+	await TrackPlayer.setVolume(0.3);
 	await TrackPlayer.setRepeatMode(RepeatMode.Queue);
 };
 
@@ -25,14 +25,16 @@ export const useSetupTrackPlayer = ({ onLoad }: { onLoad?: () => void }) => {
 	const isInitialized = useRef(false);
 
 	useEffect(() => {
-		setupPlayer()
-			.then(() => {
-				isInitialized.current = true;
-				onLoad?.();
-			})
-			.catch((error) => {
-				isInitialized.current = false;
-				console.error(error);
-			});
+		if (!isInitialized.current) {
+			setupPlayer()
+				.then(() => {
+					isInitialized.current = true;
+					onLoad?.();
+				})
+				.catch((error) => {
+					isInitialized.current = false;
+					console.error(error);
+				});
+		}
 	}, [onLoad]);
 };

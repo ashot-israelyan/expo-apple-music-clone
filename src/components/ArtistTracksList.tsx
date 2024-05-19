@@ -2,7 +2,6 @@ import { FC, useMemo } from 'react';
 import { Artist } from '@/helpers/types';
 import { StyleSheet, Text, View } from 'react-native';
 import { useNavigationSearch } from '@/hooks/useNavigationSearch';
-import artists from '@/app/(tabs)/artists';
 import { trackTitleFilter } from '@/helpers/filter';
 import { TracksList } from '@/components/TracksList';
 import { defaultStyles } from '@/styles';
@@ -23,6 +22,7 @@ export const ArtistTracksList: FC<{ artist: Artist }> = ({ artist }) => {
 	const filteredArtistTracks = useMemo(() => {
 		return artist.tracks.filter(trackTitleFilter(search));
 	}, [artist.tracks, search]);
+
 	return (
 		<TracksList
 			id={generateTracksListId(artist.name, search)}
@@ -50,7 +50,7 @@ export const ArtistTracksList: FC<{ artist: Artist }> = ({ artist }) => {
 					)}
 				</View>
 			}
-			tracks={artist.tracks}
+			tracks={filteredArtistTracks}
 		/>
 	);
 };
