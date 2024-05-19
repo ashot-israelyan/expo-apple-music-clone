@@ -1464,6 +1464,27 @@ PODS:
     - React-Core
     - SDWebImage (~> 5.11.1)
     - SDWebImageWebPCoder (~> 0.8.4)
+  - RNGestureHandler (2.16.2):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.01.01.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Codegen
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
   - RNReanimated (3.10.1):
     - DoubleConversion
     - glog
@@ -1594,6 +1615,7 @@ DEPENDENCIES:
   - React-utils (from `../node_modules/react-native/ReactCommon/react/utils`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - RNFastImage (from `../node_modules/react-native-fast-image`)
+  - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
@@ -1757,6 +1779,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   RNFastImage:
     :path: "../node_modules/react-native-fast-image"
+  RNGestureHandler:
+    :path: "../node_modules/react-native-gesture-handler"
   RNReanimated:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
@@ -1841,6 +1865,7 @@ SPEC CHECKSUMS:
   React-utils: 3285151c9d1e3a28a9586571fc81d521678c196d
   ReactCommon: f42444e384d82ab89184aed5d6f3142748b54768
   RNFastImage: 5c9c9fed9c076e521b3f509fe79e790418a544e8
+  RNGestureHandler: 2282cfbcf86c360d29f44ace393203afd5c6cff7
   RNReanimated: 35f9ac9c3ac42d0497ebd1cce5c39d7687a8493e
   RNScreens: b32a9ff15bea7fcdbe5dff6477bc503f792b1208
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d

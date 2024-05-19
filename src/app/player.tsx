@@ -8,6 +8,9 @@ import { unknownTrackImageUri } from '@/constants/images';
 import { MovingText } from '@/components/MovingText';
 import { FontAwesome } from '@expo/vector-icons';
 import { PlayerProgressBar } from '@/components/PlayerProgressbar';
+import { PlayerControls } from '@/components/PlayerControls';
+import { PlayerVolumeBar } from '@/components/PlayerVolumeBar';
+import { PlayerRepeatToggle } from '@/components/PlayerRepeatToggle';
 
 const PlayerScreen = () => {
 	const activeTrack = useActiveTrack();
@@ -74,13 +77,13 @@ const PlayerScreen = () => {
 						</View>
 
 						<PlayerProgressBar style={{ marginTop: 32 }} />
-						{/*<PlayerControls style={{ marginTop: 40 }} />*/}
+						<PlayerControls style={{ marginTop: 40 }} />
 					</View>
 
-					{/*<PlayerVolumeBar style={{ marginTop: 'auto', marginBottom: 30 }} />*/}
+					<PlayerVolumeBar style={{ marginTop: 'auto', marginBottom: 30 }} />
 
 					<View style={utilsStyles.centeredRow}>
-						{/*<PlayerRepeatToggle size={30} style={{ marginBottom: 6 }} />*/}
+						<PlayerRepeatToggle size={30} style={{ marginBottom: 6 }} />
 					</View>
 				</View>
 			</View>
