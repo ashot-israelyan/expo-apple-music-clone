@@ -27,7 +27,7 @@ export const PlayerControls: FC<PlayerControlsProps> = ({ style }) => {
 	);
 };
 
-export const PlayPauseButton: FC<PlayerButtonProps> = ({ style, iconSize }) => {
+export const PlayPauseButton: FC<PlayerButtonProps> = ({ style, iconSize = 48 }) => {
 	const { playing } = useIsPlaying();
 
 	return (
@@ -42,7 +42,7 @@ export const PlayPauseButton: FC<PlayerButtonProps> = ({ style, iconSize }) => {
 	);
 };
 
-export const SkipToNextButton: FC<PlayerButtonProps> = ({ iconSize }) => {
+export const SkipToNextButton: FC<PlayerButtonProps> = ({ iconSize = 30 }) => {
 	return (
 		<TouchableOpacity activeOpacity={0.7} onPress={() => TrackPlayer.skipToNext()}>
 			<FontAwesome6 name="forward" size={iconSize} color={colors.text} />
@@ -50,7 +50,7 @@ export const SkipToNextButton: FC<PlayerButtonProps> = ({ iconSize }) => {
 	);
 };
 
-export const SkipToPreviousButton: FC<PlayerButtonProps> = ({ iconSize }) => {
+export const SkipToPreviousButton: FC<PlayerButtonProps> = ({ iconSize = 30 }) => {
 	return (
 		<TouchableOpacity activeOpacity={0.7} onPress={() => TrackPlayer.skipToPrevious()}>
 			<FontAwesome6 name="backward" size={iconSize} color={colors.text} />
